@@ -1,0 +1,43 @@
+﻿<Window x:Class="Parser.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Parser"
+        mc:Ignorable="d"
+        Title="Новости" Height="600" Width="800">
+    <Grid Background="#FFC8C8A6">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="57*"/>
+            <RowDefinition Height="103*"/>
+            <RowDefinition Height="418*"/>
+        </Grid.RowDefinitions>
+        <Button Name="reloadButton" Content="Обновить новости" HorizontalAlignment="Left" Margin="489,19,0,0" VerticalAlignment="Top" Height="44" Width="236" Click="Button_Click" Grid.RowSpan="2" Background="#FFD6D6CB" FontSize="22"/>
+        <Label Content="Свежие новости!&#xA;" HorizontalAlignment="Left" Margin="10,11,0,0" VerticalAlignment="Top" Width="332" FontSize="40" Height="62" FontStyle="Italic" Grid.RowSpan="2" FontFamily="Times New Roman"/>
+        <TextBox Name="newsBox" HorizontalAlignment="Left" Margin="10,20,0,0" TextWrapping="Wrap" Text="Пока ничего нет" VerticalAlignment="Top" Width="770" Height="491" TextChanged="TextBox_TextChanged" FontSize="20" Grid.Row="1" Grid.RowSpan="2" Background="#FFF9FBEE" FontFamily="Times New Roman"/>
+        <ComboBox Name="categoryBox" HorizontalAlignment="Left" Margin="347,19,0,0" VerticalAlignment="Top" Width="137" Height="44" Grid.RowSpan="2" SelectionChanged="ComboBox_SelectionChanged" FontSize="22" BorderBrush="#FFD6D6CB">
+            <ComboBox.Background>
+                <LinearGradientBrush EndPoint="0,1">
+                    <GradientStop Color="#FFF0F0F0"/>
+                    <GradientStop Color="#FFD6D6CB" Offset="1"/>
+                </LinearGradientBrush>
+            </ComboBox.Background>
+            <ComboBoxItem>Политика</ComboBoxItem>
+            <ComboBoxItem Selector.IsSelected="True">Общество</ComboBoxItem>
+            <ComboBoxItem>Наука</ComboBoxItem>
+            <ComboBoxItem>Экономика</ComboBoxItem>
+            <ComboBoxItem>Статьи</ComboBoxItem>
+            <ComboBoxItem>Книги</ComboBoxItem>
+        </ComboBox>
+        <Button Name="About" Content="©" HorizontalAlignment="Left" Margin="730,19,0,0" VerticalAlignment="Top" Height="44" Width="47" Grid.RowSpan="2" Click="Button_Click_1" Background="#FFD6D6CB" FontSize="20" RenderTransformOrigin="0.5,0.5">
+            <Button.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleX="-1"/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Button.RenderTransform>
+        </Button>
+    </Grid>
+</Window>
