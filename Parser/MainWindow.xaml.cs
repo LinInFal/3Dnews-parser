@@ -23,6 +23,7 @@ namespace Parser
     public partial class MainWindow : Window
     {
         string news_text;
+        int page = 0;
 
         public MainWindow()
         {
@@ -31,37 +32,31 @@ namespace Parser
 
         void PanoramaNews()
         {
+            NewsBlock.Text = "";
             news_text = "";
+            
 
-            var category = new Dictionary<string, string>()
-            {
-                { "Политика", "politics"},
-                { "Общество", "society"},
-                { "Наука", "science"},
-                { "Экономика", "economics"},
-                { "Статьи", "articles"},
-                { "Книги", "books"},
-            };
-
-            var html = $"https://panorama.pub/{category[categoryBox.Text]}"; //сосаити
+            var html = $"https://www.opennet.ru/opennews/index.shtml?skip={page}";
 
             HtmlWeb web = new HtmlWeb();
 
             var htmlDoc = web.Load(html);
 
-            var news = htmlDoc.DocumentNode.SelectNodes("//h3");
-            var links = htmlDoc.DocumentNode.SelectNodes("//a[@class=\"entry big\"]");
+            var news = htmlDoc.DocumentNode.SelectNodes("//a[@class=\"title2\"]");
+            var links = htmlDoc.DocumentNode.SelectNodes("//a[@class=\"s2\"]");
 
             for (int n = 0; n < news.Count; n++)
             {
-                news_text += $"{n + 1}. {news[n].InnerText} (https://panorama.pub{links[n].Attributes["href"].Value})\n";
+                string link = $"https://www.opennet.ru{links[n].Attributes["href"].Value}";
+                news_text = $"{n + 1}. {news[n].InnerText} ";
+                Hyperlink hyperLink = new Hyperlink()
+                {
+                    NavigateUri = new Uri(link)
+                };
+                hyperLink.Inlines.Add($"{news_text}\n");
+                hyperLink.RequestNavigate += Hyperlink_RequestNavigate;
+                NewsBlock.Inlines.Add(hyperLink);
             }
-            newsBox.Text = news_text;
-        }
-
-        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
-        {
-            
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -69,14 +64,30 @@ namespace Parser
             PanoramaNews();
         }
 
-        private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            
-        }
-
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("By OneEyedDancer\nBeerWare License", "О программе");
+            MessageBox.Show("By OneEyedDancer\nMIT License", "О программе");
+        }
+
+        private void Hyperlink_RequestNavigate(object sender, RequestNavigateEventArgs e)
+        {
+            Process.Start(new ProcessStartInfo(e.Uri.AbsoluteUri));
+            e.Handled = true;
+        }
+
+        private void Button_Click_2(object sender, RoutedEventArgs e)
+        {
+            if (page - 1 >= 0)
+            {
+                page--;
+                PageLabel.Content = page;
+            }
+        }
+
+        private void Button_Click_3(object sender, RoutedEventArgs e)
+        {
+            page++;
+            PageLabel.Content = page;
         }
     }
 }

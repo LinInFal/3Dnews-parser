@@ -5,31 +5,19 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Parser"
         mc:Ignorable="d"
-        Title="Новости" Height="600" Width="800">
-    <Grid Background="#FFC8C8A6">
+        Title="Новости" Height="612" Width="800">
+    <Grid Background="#FF7DB3D4" Margin="0,0,-14,0">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="399*"/>
+            <ColumnDefinition Width="8*"/>
+        </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="57*"/>
-            <RowDefinition Height="103*"/>
-            <RowDefinition Height="418*"/>
+            <RowDefinition Height="71*"/>
+            <RowDefinition Height="525*"/>
         </Grid.RowDefinitions>
-        <Button Name="reloadButton" Content="Обновить новости" HorizontalAlignment="Left" Margin="489,19,0,0" VerticalAlignment="Top" Height="44" Width="236" Click="Button_Click" Grid.RowSpan="2" Background="#FFD6D6CB" FontSize="22"/>
-        <Label Content="Свежие новости!&#xA;" HorizontalAlignment="Left" Margin="10,11,0,0" VerticalAlignment="Top" Width="332" FontSize="40" Height="62" FontStyle="Italic" Grid.RowSpan="2" FontFamily="Times New Roman"/>
-        <TextBox Name="newsBox" HorizontalAlignment="Left" Margin="10,20,0,0" TextWrapping="Wrap" Text="Пока ничего нет" VerticalAlignment="Top" Width="770" Height="491" TextChanged="TextBox_TextChanged" FontSize="20" Grid.Row="1" Grid.RowSpan="2" Background="#FFF9FBEE" FontFamily="Times New Roman"/>
-        <ComboBox Name="categoryBox" HorizontalAlignment="Left" Margin="347,19,0,0" VerticalAlignment="Top" Width="137" Height="44" Grid.RowSpan="2" SelectionChanged="ComboBox_SelectionChanged" FontSize="22" BorderBrush="#FFD6D6CB">
-            <ComboBox.Background>
-                <LinearGradientBrush EndPoint="0,1">
-                    <GradientStop Color="#FFF0F0F0"/>
-                    <GradientStop Color="#FFD6D6CB" Offset="1"/>
-                </LinearGradientBrush>
-            </ComboBox.Background>
-            <ComboBoxItem>Политика</ComboBoxItem>
-            <ComboBoxItem Selector.IsSelected="True">Общество</ComboBoxItem>
-            <ComboBoxItem>Наука</ComboBoxItem>
-            <ComboBoxItem>Экономика</ComboBoxItem>
-            <ComboBoxItem>Статьи</ComboBoxItem>
-            <ComboBoxItem>Книги</ComboBoxItem>
-        </ComboBox>
-        <Button Name="About" Content="©" HorizontalAlignment="Left" Margin="730,19,0,0" VerticalAlignment="Top" Height="44" Width="47" Grid.RowSpan="2" Click="Button_Click_1" Background="#FFD6D6CB" FontSize="20" RenderTransformOrigin="0.5,0.5">
+        <Button Name="reloadButton" Content="Обновить новости" HorizontalAlignment="Left" Margin="489,19,0,0" VerticalAlignment="Top" Height="44" Width="236" Click="Button_Click" Background="#FFE6E6E6" FontSize="22"/>
+        <Label Content="OpenNET" HorizontalAlignment="Left" Margin="10,11,0,0" VerticalAlignment="Top" Width="332" FontSize="40" Height="62" FontStyle="Italic" FontFamily="Times New Roman" Grid.RowSpan="2"/>
+        <Button Name="About" Content="©" HorizontalAlignment="Left" Margin="730,19,0,0" VerticalAlignment="Top" Height="44" Width="47" Click="Button_Click_1" Background="#FFE6E6E6" FontSize="20" RenderTransformOrigin="0.5,0.5">
             <Button.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform ScaleX="-1"/>
@@ -39,5 +27,9 @@
                 </TransformGroup>
             </Button.RenderTransform>
         </Button>
+        <TextBlock x:Name="NewsBlock" HorizontalAlignment="Center" Margin="0,8,0,0" TextWrapping="Wrap" Text="Пока ничего нет" VerticalAlignment="Top" Height="491" Width="778" Background="White" FontSize="18" Grid.Row="1"/>
+        <Button Content="🠨" HorizontalAlignment="Left" Margin="431,19,0,0" VerticalAlignment="Top" Height="44" Click="Button_Click_2" Width="25"/>
+        <Button Content="➞" HorizontalAlignment="Left" Margin="461,19,0,0" VerticalAlignment="Top" Height="44" Click="Button_Click_3" Width="23"/>
+        <Label Name="PageLabel" Content="0" HorizontalAlignment="Left" Margin="402,19,0,0" VerticalAlignment="Top" Height="44" Width="24" FontSize="24"/>
     </Grid>
 </Window>
