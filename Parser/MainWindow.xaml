@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:Parser"
         mc:Ignorable="d"
         Title="Новости" Height="612" Width="800">
-    <Grid Background="#FF7DB3D4" Margin="0,0,-14,0">
+    <Grid Background="#FFE3E4D0" Margin="0,0,-14,0">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="399*"/>
             <ColumnDefinition Width="8*"/>
@@ -15,9 +15,9 @@
             <RowDefinition Height="71*"/>
             <RowDefinition Height="525*"/>
         </Grid.RowDefinitions>
-        <Button Name="reloadButton" Content="Обновить новости" HorizontalAlignment="Left" Margin="489,19,0,0" VerticalAlignment="Top" Height="44" Width="236" Click="Button_Click" Background="#FFE6E6E6" FontSize="22"/>
-        <Label Content="OpenNET" HorizontalAlignment="Left" Margin="10,11,0,0" VerticalAlignment="Top" Width="332" FontSize="40" Height="62" FontStyle="Italic" FontFamily="Times New Roman" Grid.RowSpan="2"/>
-        <Button Name="About" Content="©" HorizontalAlignment="Left" Margin="730,19,0,0" VerticalAlignment="Top" Height="44" Width="47" Click="Button_Click_1" Background="#FFE6E6E6" FontSize="20" RenderTransformOrigin="0.5,0.5">
+        <Button Name="reloadButton" Content="Обновить новости" HorizontalAlignment="Left" Margin="489,19,0,0" VerticalAlignment="Top" Height="44" Width="236" Click="Button_Click" Background="#FFC1C5AA" FontSize="22" Foreground="#FF606060"/>
+        <Label Content="OpenNET" HorizontalAlignment="Left" Margin="10,11,0,0" VerticalAlignment="Top" Width="332" FontSize="40" Height="62" FontStyle="Italic" FontFamily="Times New Roman" Grid.RowSpan="2" Foreground="#FF464A3C"/>
+        <Button Name="About" Content="©" HorizontalAlignment="Left" Margin="730,19,0,0" VerticalAlignment="Top" Height="44" Width="47" Click="Button_Click_1" Background="#FFC1C5AA" FontSize="20" RenderTransformOrigin="0.5,0.5" Foreground="#FF0000AD">
             <Button.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform ScaleX="-1"/>
@@ -28,10 +28,10 @@
             </Button.RenderTransform>
         </Button>
         <ScrollViewer Margin="10,70,0,10." Grid.RowSpan="2">
-            <TextBlock x:Name="NewsBlock" TextWrapping="Wrap" Text="Пока ничего нет" Height="516" Width="778" Background="White" FontSize="18" Grid.Row="1"/>
+            <TextBlock x:Name="NewsBlock" TextWrapping="Wrap" Text="Пока ничего нет" Height="516" Width="778" Background="#FFF7F7EF" FontSize="18" Grid.Row="1"/>
         </ScrollViewer>
-        <Button Content="🠨" HorizontalAlignment="Left" Margin="431,19,0,0" VerticalAlignment="Top" Height="44" Click="Button_Click_2" Width="25"/>
-        <Button Content="➞" HorizontalAlignment="Left" Margin="461,19,0,0" VerticalAlignment="Top" Height="44" Click="Button_Click_3" Width="23"/>
-        <Label Name="PageLabel" Content="0" HorizontalAlignment="Left" Margin="402,19,0,0" VerticalAlignment="Top" Height="44" Width="24" FontSize="24"/>
+        <Button Content="🠨" HorizontalAlignment="Left" Margin="431,19,0,0" VerticalAlignment="Top" Height="44" Click="Button_Click_2" Width="25" Background="#FFC1C5AA" Foreground="#FF606060"/>
+        <Button Content="➞" HorizontalAlignment="Left" Margin="461,19,0,0" VerticalAlignment="Top" Height="44" Click="Button_Click_3" Width="23" Background="#FFC1C5AA" Foreground="#FF606060"/>
+        <Label Name="PageLabel" Content="0" HorizontalAlignment="Left" Margin="402,19,0,0" VerticalAlignment="Top" Height="44" Width="24" FontSize="24" Foreground="#FF464A3C"/>
     </Grid>
 </Window>
