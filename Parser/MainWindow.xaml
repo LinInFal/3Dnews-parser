@@ -27,7 +27,9 @@
                 </TransformGroup>
             </Button.RenderTransform>
         </Button>
-        <TextBlock x:Name="NewsBlock" HorizontalAlignment="Center" Margin="0,8,0,0" TextWrapping="Wrap" Text="Пока ничего нет" VerticalAlignment="Top" Height="491" Width="778" Background="White" FontSize="18" Grid.Row="1"/>
+        <ScrollViewer Margin="10,70,0,10." Grid.RowSpan="2">
+            <TextBlock x:Name="NewsBlock" TextWrapping="Wrap" Text="Пока ничего нет" Height="516" Width="778" Background="White" FontSize="18" Grid.Row="1"/>
+        </ScrollViewer>
         <Button Content="🠨" HorizontalAlignment="Left" Margin="431,19,0,0" VerticalAlignment="Top" Height="44" Click="Button_Click_2" Width="25"/>
         <Button Content="➞" HorizontalAlignment="Left" Margin="461,19,0,0" VerticalAlignment="Top" Height="44" Click="Button_Click_3" Width="23"/>
         <Label Name="PageLabel" Content="0" HorizontalAlignment="Left" Margin="402,19,0,0" VerticalAlignment="Top" Height="44" Width="24" FontSize="24"/>
